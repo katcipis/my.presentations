@@ -1,0 +1,4 @@
+---
+  - name: ensure lighttpd is at the latest version
+    apt: name=lighttpd state=latest
+    tags: lighttpd

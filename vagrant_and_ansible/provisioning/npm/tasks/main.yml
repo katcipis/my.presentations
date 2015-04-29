@@ -1,0 +1,4 @@
+---
+- name: Installing npm
+  apt: name=npm
+  tags: npm

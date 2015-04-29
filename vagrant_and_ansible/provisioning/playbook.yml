@@ -1,0 +1,11 @@
+---
+- hosts: all
+  user: vagrant
+  sudo: yes
+
+  roles:
+    - common
+    - nodejs
+    - npm
+    - grunt-cli
+    - revealjs

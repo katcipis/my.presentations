@@ -1,0 +1,4 @@
+---
+- name: Installing packages based on package.json
+  npm: path=/vagrant/reveal.js
+  tags: revealjs

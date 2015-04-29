@@ -1,0 +1,4 @@
+---
+- name: Updating and upgrading system
+  apt: update_cache=yes upgrade=yes
+  tags: common

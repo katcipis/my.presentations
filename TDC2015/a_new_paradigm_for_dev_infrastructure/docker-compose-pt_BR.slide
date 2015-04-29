@@ -1,0 +1,26 @@
+Docker Compose
+Um novo paradigma de desenvolvimento com docker compose
+13 May 2015
+Tags: docker, docker-compose
+
+Luciano Borguetti, Tiago Katcipis
+lucianoborguetti@gmail.com / katcipis@gmail.com
+http://github.com/lborguetti / http://github.com/katcipis
+
+* Agenda
+
+- Infraestrutura de desenvolvimento
+- Docker
+- Docker Compose
+- Usando o Docker Compose
+
+
+* Infraestrutura de desenvolvimento
+
+- Ambiente Centralizado
+- Snowflake servers (Martin Fowler)
+- Ambiente local (estação de trabalho)
+- Reprodução?
+- Escalabilidade?
+- Rastreabilidade?
+- Como co-existir diferentes versões de software?
