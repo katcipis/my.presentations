@@ -1,41 +1,95 @@
 Docker Compose
 Um novo paradigma de desenvolvimento com docker compose
 13 May 2015
-Tags: docker, docker-compose
+Tags: docker, docker-compose, ambiente de desenvolvimento, desenvolvimento, dev
 
 Luciano Borguetti, Tiago Katcipis
-lucianoborguetti@gmail.com / katcipis@gmail.com
+lucianoborguetti@gmail.com / tiago.katcipis@neoway.com.br
 http://github.com/lborguetti / http://github.com/katcipis
+
 
 * Agenda
 
 - Infraestrutura de desenvolvimento
 - Docker
+- Usando o Docker
 - Docker Compose
 - Usando o Docker Compose
+- Caso de uso: Neobot
 
 
 * Infraestrutura de desenvolvimento
 
-- Ambiente Centralizado
-- Snowflake servers (Martin Fowler)
-- Ambiente local (estação de trabalho)
-- Reprodução?
-- Escalabilidade?
-- Rastreabilidade?
-- Como co-existir diferentes versões de software?
 
-* Docker
-- O que é o docker?
-- Diferença básica da virtualização
-- Images vs Container
-- volume de dados e container de dados
-- link e expose
+* Necessidades
 
-* Docker Componse
-- O que é o Docker Compose.
-- Usando o Docker Compose.
-- O básico do arquivo docker-compose.yml
-- Command line
+- Fácil de construir (novos desenvolvedores conseguem começar rápido :-)
+- Rastreável
+- Escalável
+- Habilitar um ambiente heterogêneo
+- Permitir testes isolados e de integração
+- Testes são executados em um ambiente o mais próximo possível de produção
+- Tudo isso em uma solução que pode ser composta de vários serviços (MongoDB, Redis, RabbitMQ, etc)
 
-* Usando o Docker Compose em um projeto real.
+
+* Docker (KLB, explica essa droga)
+
+* Docker Linking (KLB, explica essa droga de linkar containers)
+
+
+* Usando o Docker
+
+* Primeira idéia
+
+- Ambiente de desenvolvimento isolado usando Docker
+- Container docker eh construido com todas as ferramentas necessárias
+- Rastreabilidade e isolamento no build e execução dos testes
+- Parece bom testes unitários, mas como fazer testes de integração ?
+
+
+* Como testar integração ?
+
+- Preciso de um Redis
+- E um RabbitMQ
+- E um MongoDB
+- E um outro serviço qualquer desenvolvido in-house
+- Com microserviços isso só piora :-)
+
+
+* Insistindo apenas em um container
+
+- Colocar todos os serviços junto no seu container de desenvolvimento
+- Como parar / reiniciar um serviço especifico ?
+- Como avaliar o log de cada um dos serviços isoladamente ?
+- Docker não foi feito para executar mais de um serviço por container (Exemplo: docker stop/logs)
+- Dificilmente próximo do ambiente final de produção :-(
+
+
+* Idéia melhor !!!
+
+E se usarmos o mecanismo de linking do docker para conectar vários containers e construir um ambiente 
+bem próximo ao de produção ?
+
+Algo como:
+
+    docker run -d --name myredis redis
+    docker run -d --name myapp --link myredis:myredis example/myapp ./myapp
+
+Executando testes de integração:
+
+    docker run --name myapptests --link myapp:myapp example/myapp-tests ./myapp-tests
+
+
+* Conclusão
+
+- Conseguimos fazer testes bem próximos ao ambiente de produção. Usando as mesmas imagens do Docker que serão utilizadas em produção.
+- Esses testes integram vários serviços porém são isolados, cada desenvolvedor executa os containers na sua própria máquina.
+- Mitigando o tradicional "funciona na minha máquina" :-).
+- O gerenciamento desses containers não parece ser muito simples, principalmente se começarmos a envolver mais serviços.
+
+
+* Docker Compose (KLB, explica essa droga de linkar containers)
+
+* Usando o Docker Compose (Katcipis explicará isso :D, se vc quiser pode fazer também)
+
+* Caso de uso: Neobot
