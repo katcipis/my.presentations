@@ -24,3 +24,18 @@ http://github.com/lborguetti / http://github.com/katcipis
 - Escalabilidade?
 - Rastreabilidade?
 - Como co-existir diferentes versões de software?
+
+* Docker
+- O que é o docker?
+- Diferença básica da virtualização
+- Images vs Container
+- volume de dados e container de dados
+- link e expose
+
+* Docker Componse
+- O que é o Docker Compose.
+- Usando o Docker Compose.
+- O básico do arquivo docker-compose.yml
+- Command line
+
+* Usando o Docker Compose em um projeto real.
