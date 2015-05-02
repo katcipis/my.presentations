@@ -1,6 +1,6 @@
 Docker Compose
 Um novo paradigma de desenvolvimento com docker compose
-13 Maio 2015
+13 May 2015
 Tags: docker, docker-compose, ambiente de desenvolvimento, desenvolvimento, dev
 
 Luciano Borguetti, Tiago Katcipis
@@ -43,7 +43,7 @@ http://github.com/lborguetti / http://github.com/katcipis
 - Container docker eh construido com todas as ferramentas necessárias
 - Rastreabilidade e isolamento no build e execução dos testes
 - Parece bom
-- Só que não :-(
+- Para testes unitários talvez, mas como fazer testes de integração ?
 
 
 * Como testar integração ?
@@ -62,3 +62,18 @@ http://github.com/lborguetti / http://github.com/katcipis
 - Como avaliar o log de cada um dos serviços isoladamente ?
 - Docker não foi feito para executar mais de um serviço por container (Exemplo: docker stop)
 - Dificilmente próximo do ambiente final de produção :-(
+
+
+* Idéia melhor !!!
+
+E se usarmos o mecanismo de linking do docker para conectar vários containers e construir um ambiente 
+bem próximo ao de produção ?
+
+Algo como:
+
+    docker run -d --name myredis redis
+    docker run -d --name myapp --link myredis:myredis example/myapp ./myapp
+
+Executando testes de integração:
+
+    docker run --name myapptests --link myapp:myapp example/myapp-tests ./myapp-tests
