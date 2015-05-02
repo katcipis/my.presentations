@@ -15,6 +15,7 @@ http://github.com/lborguetti / http://github.com/katcipis
 - Usando o Docker
 - Docker Compose
 - Usando o Docker Compose
+- Caso de uso: Neobot
 
 
 * Infraestrutura de desenvolvimento
@@ -42,8 +43,7 @@ http://github.com/lborguetti / http://github.com/katcipis
 - Ambiente de desenvolvimento isolado usando Docker
 - Container docker eh construido com todas as ferramentas necessárias
 - Rastreabilidade e isolamento no build e execução dos testes
-- Parece bom
-- Para testes unitários talvez, mas como fazer testes de integração ?
+- Parece bom testes unitários, mas como fazer testes de integração ?
 
 
 * Como testar integração ?
@@ -60,7 +60,7 @@ http://github.com/lborguetti / http://github.com/katcipis
 - Colocar todos os serviços junto no seu container de desenvolvimento
 - Como parar / reiniciar um serviço especifico ?
 - Como avaliar o log de cada um dos serviços isoladamente ?
-- Docker não foi feito para executar mais de um serviço por container (Exemplo: docker stop)
+- Docker não foi feito para executar mais de um serviço por container (Exemplo: docker stop/logs)
 - Dificilmente próximo do ambiente final de produção :-(
 
 
@@ -77,3 +77,18 @@ Algo como:
 Executando testes de integração:
 
     docker run --name myapptests --link myapp:myapp example/myapp-tests ./myapp-tests
+
+
+* Conclusão
+
+- Conseguimos fazer testes bem próximos ao ambiente de produção. Usando as mesmas imagens do Docker que serão utilizadas em produção.
+- Esses testes integram vários serviços porém são isolados, cada desenvolvedor executa os containers na sua própria máquina.
+- Mitigando o tradicional "funciona na minha máquina" :-).
+- O gerenciamento desses containers não parece ser muito simples, principalmente se começarmos a envolver mais serviços.
+
+
+* Docker Compose (KLB, explica essa droga de linkar containers)
+
+* Usando o Docker Compose (Katcipis explicará isso :D, se vc quiser pode fazer também)
+
+* Caso de uso: Neobot
