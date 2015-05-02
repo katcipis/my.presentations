@@ -4,8 +4,9 @@ Um novo paradigma de desenvolvimento com docker compose
 Tags: docker, docker-compose
 
 Luciano Borguetti, Tiago Katcipis
-lucianoborguetti@gmail.com / katcipis@gmail.com
+lucianoborguetti@gmail.com / tiago.katcipis@neoway.com.br
 http://github.com/lborguetti / http://github.com/katcipis
+
 
 * Agenda
 
@@ -17,10 +18,14 @@ http://github.com/lborguetti / http://github.com/katcipis
 
 * Infraestrutura de desenvolvimento
 
-- Ambiente Centralizado
-- Snowflake servers (Martin Fowler)
-- Ambiente local (estação de trabalho)
-- Reprodução?
-- Escalabilidade?
-- Rastreabilidade?
-- Como co-existir diferentes versões de software?
+* Necessidades
+
+- Fácil de construir (novos desenvolvedores conseguem começar rápido :-)
+- Rastreável
+- Escalável
+- Habilitar um ambiente heterogêneo
+- Permitir testes isolados e de integração
+- Testes são executados em um ambiente o mais próximo possível de produção
+- Tudo isso em uma solução que pode ser composta de vários serviços (MongoDB, Redis, RabbitMQ, etc)
+
+
