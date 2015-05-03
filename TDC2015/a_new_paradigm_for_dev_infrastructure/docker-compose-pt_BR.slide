@@ -38,9 +38,9 @@ http://github.com/lborguetti / http://github.com/katcipis
 .image images/TDC2015-docker-logo.png 150 _
 
 - É uma plataforma aberta para o desenvolvimento, transporte e execução de aplicativos
-- Sem a carga extra de um [[http://en.wikipedia.org/wiki/Hypervisor][*hypervisor*]]. Faz uso da tecnologia de linux container ( >= release 0.9 usa [[https://github.com/docker/libcontainer][*libcontainer*]])
-- Garente isolamento entre os containers utilizando Linux [[http://man7.org/linux/man-pages/man7/namespaces.7.html][*namespaces*]]
-- Usa [[https://www.kernel.org/doc/Documentation/cgroups/cgroups.txt][*cgroups*]] para compartilhar/limitar recurso de hardware entre os containers
+- Virtualização em nível de sistema operacional (>= release 0.9 [[https://github.com/docker/libcontainer][*libcontainer*]]), sem a carga extra de um [[http://en.wikipedia.org/wiki/Hypervisor][*hypervisor*]].
+- Isolamento entre os containers utilizando Linux [[http://man7.org/linux/man-pages/man7/namespaces.7.html][*namespaces*]]
+- [[https://www.kernel.org/doc/Documentation/cgroups/cgroups.txt][*Cgroups*]] para compartilhar e limitar recurso de hardware entre os containers
 - [[http://unionfs.filesystems.org/][*UnionFS*]] para criação de [[https://docs.docker.com/terms/layer/][*layers*]]
 - Permite tratar a sua infra-estrutura como código
 
