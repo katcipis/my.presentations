@@ -23,13 +23,13 @@ http://github.com/lborguetti / http://github.com/katcipis
 
 * Necessidades
 
-- Fácil de construir (novos desenvolvedores conseguem começar rápido :-)
-- Rastreável
-- Escalável
-- Habilitar um ambiente heterogêneo
-- Permitir testes isolados e de integração
-- Testes são executados em um ambiente o mais próximo possível de produção
-- Tudo isso em uma solução que pode ser composta de vários serviços (MongoDB, Redis, RabbitMQ, etc)
+- Facilidade de construção e reprodução
+- Rastreabilidade
+- Escalabilidade
+- Possilidade de testes isolados e de integração
+- Execução de testes o mais próximo possível do ambiente produção
+- Composição por vários serviços (MongoDB, Redis, RabbitMQ, etc)
+- Habilitar um ambiente heterogêneo ?????
 
 * Docker
 
@@ -37,19 +37,18 @@ http://github.com/lborguetti / http://github.com/katcipis
 
 .image images/TDC2015-docker-logo.png 150 _
 
-- É uma plataforma aberta para o desenvolvimento, transporte e execução de aplicativos.
-- Sem a carga extra de um [[http://en.wikipedia.org/wiki/Hypervisor][*hypervisor*]]. Faz uso da tecnologia de linux container ( >= release 0.9 usa [[https://github.com/docker/libcontainer][*libcontainer*]]).
-- Garente isolamento entre os containers utilizando Linux [[http://man7.org/linux/man-pages/man7/namespaces.7.html][*namespaces*]].
-- Usa [[https://www.kernel.org/doc/Documentation/cgroups/cgroups.txt][*cgroups*]] para compartilhar/limitar recurso de hardware entre os containers.
-- [[http://unionfs.filesystems.org/][*UnionFS*]] para criação de [[https://docs.docker.com/terms/layer/][*layers*]].
-- Permite tratar a sua infra-estrutura como código.
+- É uma plataforma aberta para o desenvolvimento, transporte e execução de aplicativos
+- Sem a carga extra de um [[http://en.wikipedia.org/wiki/Hypervisor][*hypervisor*]]. Faz uso da tecnologia de linux container ( >= release 0.9 usa [[https://github.com/docker/libcontainer][*libcontainer*]])
+- Garente isolamento entre os containers utilizando Linux [[http://man7.org/linux/man-pages/man7/namespaces.7.html][*namespaces*]]
+- Usa [[https://www.kernel.org/doc/Documentation/cgroups/cgroups.txt][*cgroups*]] para compartilhar/limitar recurso de hardware entre os containers
+- [[http://unionfs.filesystems.org/][*UnionFS*]] para criação de [[https://docs.docker.com/terms/layer/][*layers*]]
+- Permite tratar a sua infra-estrutura como código
 
 * Usando o Docker
 
 * Primeira idéia
 
 .image images/TDC2015-docker-all-the-things.png 250 300
-.caption _Referência:_ [[http://docs.docker.com/introduction/understanding-docker/][understanding-docker]]
 
 - Ambiente de desenvolvimento isolado usando Docker
 - Container docker eh construido com todas as ferramentas necessárias
