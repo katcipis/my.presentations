@@ -52,7 +52,7 @@ http://github.com/lborguetti / http://github.com/katcipis
 - Ambiente de desenvolvimento isolado usando Docker
 - Container docker eh construido com todas as ferramentas necessárias
 - Rastreabilidade e isolamento no build e execução dos testes
-- Parece bom testes unitários, mas como fazer testes de integração ?
+- Parece bom para testes unitários, mas como fazer testes de integração ?
 
 * Como testar integração ?
 
