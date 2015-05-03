@@ -23,13 +23,12 @@ http://github.com/lborguetti / http://github.com/katcipis
 
 * Necessidades
 
-- Facilidade de construção e reprodução
+- Facilidade de construção de ambientes heterogêneos
 - Rastreabilidade
 - Escalabilidade
 - Possilidade de testes isolados e de integração
 - Execução de testes o mais próximo possível do ambiente produção
-- Composição por vários serviços (MongoDB, Redis, RabbitMQ, etc)
-- Habilitar um ambiente heterogêneo ?????
+- Composição com vários serviços (MongoDB, Redis, RabbitMQ, etc)
 
 * Docker
 
