@@ -31,21 +31,30 @@ http://github.com/lborguetti / http://github.com/katcipis
 - Testes são executados em um ambiente o mais próximo possível de produção
 - Tudo isso em uma solução que pode ser composta de vários serviços (MongoDB, Redis, RabbitMQ, etc)
 
+* Docker
 
-* Docker (KLB, explica essa droga)
+* Docker?
 
-* Docker Linking (KLB, explica essa droga de linkar containers)
+.image images/TDC2015-docker-logo.png 150 _
 
+- É uma plataforma aberta para o desenvolvimento, transporte e execução de aplicativos.
+- Sem a carga extra de um [[http://en.wikipedia.org/wiki/Hypervisor][*hypervisor*]]. Faz uso da tecnologia de linux container ( >= release 0.9 usa [[https://github.com/docker/libcontainer][*libcontainer*]]).
+- Garente isolamento entre os containers utilizando Linux [[http://man7.org/linux/man-pages/man7/namespaces.7.html][*namespaces*]].
+- Usa [[https://www.kernel.org/doc/Documentation/cgroups/cgroups.txt][*cgroups*]] para compartilhar/limitar recurso de hardware entre os containers.
+- [[http://unionfs.filesystems.org/][*UnionFS*]] para criação de [[https://docs.docker.com/terms/layer/][*layers*]].
+- Permite tratar a sua infra-estrutura como código.
 
 * Usando o Docker
 
 * Primeira idéia
 
+.image images/TDC2015-docker-all-the-things.png 250 300
+.caption _Referência:_ [[http://docs.docker.com/introduction/understanding-docker/][understanding-docker]]
+
 - Ambiente de desenvolvimento isolado usando Docker
 - Container docker eh construido com todas as ferramentas necessárias
 - Rastreabilidade e isolamento no build e execução dos testes
 - Parece bom testes unitários, mas como fazer testes de integração ?
-
 
 * Como testar integração ?
 
@@ -55,7 +64,6 @@ http://github.com/lborguetti / http://github.com/katcipis
 - E um outro serviço qualquer desenvolvido in-house
 - Com microserviços isso só piora :-)
 
-
 * Insistindo apenas em um container
 
 - Colocar todos os serviços junto no seu container de desenvolvimento
@@ -64,10 +72,15 @@ http://github.com/lborguetti / http://github.com/katcipis
 - Docker não foi feito para executar mais de um serviço por container (Exemplo: docker stop/logs)
 - Dificilmente próximo do ambiente final de produção :-(
 
+* Docker Linking
+
+- Permite de forma segura acesso entre os containers;
+
+.image images/TDC2015-docker-link.jpg 520 _
 
 * Idéia melhor !!!
 
-E se usarmos o mecanismo de linking do docker para conectar vários containers e construir um ambiente 
+E se usarmos o mecanismo de linking do docker para conectar vários containers e construir um ambiente
 bem próximo ao de produção ?
 
 Algo como:
@@ -79,14 +92,12 @@ Executando testes de integração:
 
     docker run --name myapptests --link myapp:myapp example/myapp-tests ./myapp-tests
 
-
 * Conclusão
 
 - Conseguimos fazer testes bem próximos ao ambiente de produção. Usando as mesmas imagens do Docker que serão utilizadas em produção.
 - Esses testes integram vários serviços porém são isolados, cada desenvolvedor executa os containers na sua própria máquina.
 - Mitigando o tradicional "funciona na minha máquina" :-).
 - O gerenciamento desses containers não parece ser muito simples, principalmente se começarmos a envolver mais serviços.
-
 
 * Docker Compose (KLB, explica essa droga de linkar containers)
 
