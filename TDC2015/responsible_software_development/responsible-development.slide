@@ -1,0 +1,50 @@
+Responsible Software Development
+TODO
+22 Jun 2015
+Tags: software development, agile, TDD, Refactoring, design, architecture
+
+Tiago Katcipis
+tiago.katcipis@neoway.com.br
+http://github.com/katcipis
+
+
+* Agenda
+
+- Who is responsible for the quality of the software ?
+- How to handle the responsibility ?
+- Ruthless testing
+
+
+* Who is responsible for the quality of the software ?
+
+
+* What is quality ?
+
+- Quality is something that depends on scope
+- The scope here is functional
+- Does the new feature work properly ?
+- Any of the previous features broke ?
+- We are dividing to conquer :-)
+
+
+* Should be QA ?
+
+
+* Manual Testing: The dream
+
+.image ./img/assume-dev-is-propotional-to-test.jpg _ 700
+
+
+* Manual Testing: Reality
+
+.image ./img/manual-test-is-unsustainable.jpg _ 700
+
+
+* Manual Testing: Brave fireman
+
+.image ./img/untested-code-gap.jpg _ 700
+
+
+* Resources / References
+
+- [[http://www.renaissancesoftware.net/blog/archives/206][Manual Test is Unsustainable]]
