@@ -45,6 +45,19 @@ http://github.com/katcipis
 .image ./img/untested-code-gap.jpg _ 700
 
 
+* Developers are responsible
+
+* Why ?
+
+- Only possible way to scale a system
+- The ones that are more involved with the code
+- The best way to innovate is by giving freedom
+- Freedom without responsibility is just childish
+- "You build it you run it" : "You build it you test it"
+
+
 * Resources / References
 
 - [[http://www.renaissancesoftware.net/blog/archives/206][Manual Test is Unsustainable]]
+- [[https://vimeo.com/68375232][Ian Cooper: TDD, where did it all go wrong]]
+- [[http://www.se-radio.net/2010/09/episode-167-the-history-of-junit-and-the-future-of-testing-with-kent-beck/][The History of JUnit and the Future of Testing with Kent Beck]]
