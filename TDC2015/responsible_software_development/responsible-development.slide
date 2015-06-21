@@ -11,7 +11,14 @@ http://github.com/katcipis
 * Agenda
 
 - Who is responsible for the quality of the software ?
-- How to handle the responsibility ?
+- Why TDD ?
+- What is TDD ?
+- The experience of learning TDD
+- TDD Pitfalls
+- What about legacy code ?
+- When TDD does not matter
+- Playing on the feedback space: MDD
+- How to start ?
 
 
 * Who is responsible for the quality of the software ?
@@ -52,7 +59,8 @@ http://github.com/katcipis
 - The ones that are more involved with the code
 - The best way to innovate is by giving freedom
 - Freedom without responsibility is just childish
-- "You build it you run it" : "You build it you test it"
+- Matches the approach where a team is responsible for the entire service
+- You build it you run it. You build it you test it :-)
 
 
 * How to handle the responsibility ?
@@ -78,8 +86,57 @@ http://github.com/katcipis
 .image ./img/disaster-girl.jpg _ 700
 
 
+* Messing up with code
+
+- To test the test you have to see it fail
+- To make it fail you have to comment out code
+- Perhaps, it would be easier to write the test first
+
+
+* Enters TDD
+
+
+* The micro cycle
+
+- Write the test first
+- Run it, see it fail
+- Write the minimum amount of code to make it pass (tricky :-)
+- Refactor
+- Start again :-)
+
+
+* Nature of the tests
+
+
+* FIRST
+
+- Fast
+- Isolated
+- Repeatable
+- Self-verifying
+- Timely
+
+
+* TDD Benefits
+
+* Disclaimer
+
+- TDD is not the only way to achieve any of these objectives
+- But if you are having problems with any of these, it *may* help you
+
+
+* TDD Benefits
+
+- Testability is a first class citizen on your design
+- Dependency management problems become explicit on test code
+- Enables refactoring
+- Executable specification of the system
+
+
 * Resources / References
 
+- [[https://pragprog.com/magazines/2012-01/unit-tests-are-first][Tests are First]]
+- [[http://www.amazon.com/The-Pragmatic-Programmer-Journeyman-Master/dp/020161622X][The Pragmatic Programmer]]
 - [[http://www.renaissancesoftware.net/blog/archives/206][Manual Test is Unsustainable]]
 - [[https://vimeo.com/68375232][Ian Cooper: TDD, where did it all go wrong]]
 - [[http://www.se-radio.net/2010/09/episode-167-the-history-of-junit-and-the-future-of-testing-with-kent-beck/][The History of JUnit and the Future of Testing with Kent Beck]]
