@@ -12,7 +12,6 @@ http://github.com/katcipis
 
 - Who is responsible for the quality of the software ?
 - How to handle the responsibility ?
-- Ruthless testing
 
 
 * Who is responsible for the quality of the software ?
@@ -54,6 +53,29 @@ http://github.com/katcipis
 - The best way to innovate is by giving freedom
 - Freedom without responsibility is just childish
 - "You build it you run it" : "You build it you test it"
+
+
+* How to handle the responsibility ?
+
+
+* Ruthless Testing
+
+- Most developers hate testing
+- They test gently, subconsciously knowing where the code will break
+- Lets face it, testing is hard :-)
+- But really pragmatic programmers are driven to find the bugs *now*
+- It is easier to catch bugs as soon as they appear
+- We want to close this gap as much as we can
+- Also have regression for previously tested functionality
+- Test Early, Test Often. Test Automatically
+
+
+* How to test the test ?
+
+
+* Sabotage !!!
+
+.image ./img/disaster-girl.jpg _ 700
 
 
 * Resources / References
