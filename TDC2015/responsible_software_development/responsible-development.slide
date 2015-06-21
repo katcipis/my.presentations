@@ -13,15 +13,17 @@ http://github.com/katcipis
 - Who is responsible for the quality of the software ?
 - Why TDD ?
 - What is TDD ?
+- Benefits of TDD
+- What TDD is not ?
 - The experience of learning TDD
-- TDD Pitfalls
+- When TDD goes wrong
 - What about legacy code ?
 - When TDD does not matter
 - Playing on the feedback space: MDD
 - How to start ?
 
 
-* Who is responsible for the quality of the software ?
+* Who is responsible for the quality ?
 
 
 * What is quality ?
@@ -138,8 +140,16 @@ http://github.com/katcipis
 .image ./img/refactoring.png
 
 
+* What TDD is not
+
+- A tool to write unit tests (it is not UTDD)
+- A silver bullet
+- It is a mindset, it depends on you thinking about what you do
+
+
 * Resources / References
 
+- [[https://www.facebook.com/notes/kent-beck/when-tdd-doesnt-matter/797644973601702][When TDD Doesn't Matter]]
 - [[https://pragprog.com/magazines/2012-01/unit-tests-are-first][Tests are First]]
 - [[http://www.amazon.com/The-Pragmatic-Programmer-Journeyman-Master/dp/020161622X][The Pragmatic Programmer]]
 - [[http://www.renaissancesoftware.net/blog/archives/206][Manual Test is Unsustainable]]
