@@ -159,6 +159,7 @@ http://github.com/katcipis
 * Micro testing
 
 - Testing stuff like Get/Set
+- Each module / class of the system *MUST* have tests
 - Usually because people get the "unit" testing thing wrong
 
 
@@ -169,6 +170,17 @@ http://github.com/katcipis
 - Pressure builds up
 - You give up testing, start to code like hell :D
 - You may end with tests to less important parts of the system
+
+
+* Delaying integration
+
+- Basically you get stuck on the micro cycle forever
+- TDD is not only about unit testing
+- It is a whole test mindset
+- Integration tests
+- Performance tests
+- Load tests
+- Exploratory tests
 
 
 * Overmocking
@@ -185,7 +197,47 @@ http://github.com/katcipis
 - Just pay the price if you are going to get something from it
 
 
-* Some reasons to mock
+* Some good reasons to mock
+
+- Volatile resources (like time)
+- Slow to setup dependencies
+- Hard to control dependencies
+- Test error conditions and exceptional behaviour
+
+
+* Legacy Code
+
+- Have a bug ? Write a test for it :-)
+- No bug correction is accepted without a test
+- Need to refactor ? Test first
+- New feature, TDD it :-)
+- Terribly hard to do, that is why is easier to test first :-)
+
+
+* Can I just read my way through all this ?
+
+
+* NO !!!
+
+.image ./img/no.png
+
+
+* How to start ?
+
+- Stop giving excuses, start practicing
+- Don't wait for blessings to start doing it
+- It is *YOUR* responsibility
+- Start with the rules
+- Grow to use context
+- It is not a silver bullet, don't be religious
+- Should aid the business
+
+
+* Projects
+
+- [[http://www.mbtest.org/][Mountebank]]
+- [[https://github.com/shopify/toxiproxy][Toxiproxy]]
+- [[https://github.com/vcr/vcr][VCR]]
 
 
 * Resources / References
