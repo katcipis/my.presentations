@@ -1,5 +1,5 @@
 Responsible Software Development
-TODO
+TDD on the trenches
 22 Jun 2015
 Tags: software development, agile, TDD, Refactoring, design, architecture
 
@@ -224,13 +224,25 @@ http://github.com/katcipis
 
 * How to start ?
 
-- Stop giving excuses, start practicing
-- Don't wait for blessings to start doing it
+
+* No time
+
+.image ./img/no-time-for-tdd.png
+
+
+* My boss don't let me
+
+.image ./img/boss-dont-let-it.png
+
+
+* Just start doing it :-)
+
 - It is *YOUR* responsibility
 - Start with the rules
 - Grow to use context
 - It is not a silver bullet, don't be religious
 - Should aid the business
+- Don't forget, the best feedback is the client feedback
 
 
 * Projects
