@@ -18,8 +18,6 @@ http://github.com/katcipis
 - The experience of learning TDD
 - When TDD goes wrong
 - What about legacy code ?
-- When TDD does not matter
-- Playing on the feedback space: MDD
 - How to start ?
 
 
@@ -133,6 +131,7 @@ http://github.com/katcipis
 - Dependency management problems become explicit on test code
 - Enables refactoring
 - Executable specification of the system
+- You may write less crap :-)
 
 
 * Peace of mind
@@ -147,11 +146,55 @@ http://github.com/katcipis
 - It is a mindset, it depends on you thinking about what you do
 
 
+* The experience of learning TDD
+
+
+* Not one line without tests !!!
+
+- For experienced people sounds silly and unreal
+- Rules are required for beginners
+- In the end you won't TDD everything
+
+
+* Micro testing
+
+- Testing stuff like Get/Set
+- Usually because people get the "unit" testing thing wrong
+
+
+* Testing the wrong stuff
+
+- On the start, TDD is really slow
+- Since you do TDD all the time, you start to get late
+- Pressure builds up
+- You give up testing, start to code like hell :D
+- You may end with tests to less important parts of the system
+
+
+* Overmocking
+
+.image ./img/mocks.png
+
+
+* Overmocking
+
+- Mocks are implementation details on your tests
+- You are coupling your tests to these details
+- The mocks are more code for you to maintain
+- How can you know that it does not reflect the truth anymore ?
+- Just pay the price if you are going to get something from it
+
+
+* Some reasons to mock
+
+
 * Resources / References
 
 - [[https://www.facebook.com/notes/kent-beck/when-tdd-doesnt-matter/797644973601702][When TDD Doesn't Matter]]
 - [[https://pragprog.com/magazines/2012-01/unit-tests-are-first][Tests are First]]
+- [[http://martinfowler.com/books/refactoring.html][Refactoring]]
 - [[http://www.amazon.com/The-Pragmatic-Programmer-Journeyman-Master/dp/020161622X][The Pragmatic Programmer]]
+- [[https://pragprog.com/book/jgade/test-driven-development-for-embedded-c][Test Driven Development for Embedded C]]
 - [[http://www.renaissancesoftware.net/blog/archives/206][Manual Test is Unsustainable]]
 - [[https://vimeo.com/68375232][Ian Cooper: TDD, where did it all go wrong]]
 - [[http://www.se-radio.net/2010/09/episode-167-the-history-of-junit-and-the-future-of-testing-with-kent-beck/][The History of JUnit and the Future of Testing with Kent Beck]]
