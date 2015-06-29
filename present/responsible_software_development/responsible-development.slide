@@ -131,6 +131,7 @@ http://github.com/katcipis
 - Dependency management problems become explicit on test code
 - Enables refactoring
 - Executable specification of the system
+- Definition of done
 - You may write less crap :-)
 
 
