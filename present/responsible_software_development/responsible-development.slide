@@ -1,0 +1,267 @@
+Responsible Software Development
+TDD on the trenches
+22 Jun 2015
+Tags: software development, agile, TDD, Refactoring, design, architecture
+
+Tiago Katcipis
+tiago.katcipis@neoway.com.br
+http://github.com/katcipis
+
+
+* Agenda
+
+- Who is responsible for the quality of the software ?
+- Why TDD ?
+- What is TDD ?
+- Benefits of TDD
+- What TDD is not ?
+- The experience of learning TDD
+- When TDD goes wrong
+- What about legacy code ?
+- How to start ?
+
+
+* Who is responsible for the quality ?
+
+
+* What is quality ?
+
+- Quality is something that depends on scope
+- The scope here is functional
+- Does the new feature work properly ?
+- Any of the previous features broke ?
+- We are dividing to conquer :-)
+
+
+* Should be QA ?
+
+
+* Manual Testing: The dream
+
+.image ./img/assume-dev-is-propotional-to-test.jpg _ 700
+
+
+* Manual Testing: Reality
+
+.image ./img/manual-test-is-unsustainable.jpg _ 700
+
+
+* Manual Testing: Brave fireman
+
+.image ./img/untested-code-gap.jpg _ 700
+
+
+* Developers are responsible
+
+* Why ?
+
+- Only possible way to scale a system
+- The ones that are more involved with the code
+- The best way to innovate is by giving freedom
+- Freedom without responsibility is just childish
+- Matches the approach where a team is responsible for the entire service
+- You build it you run it. You build it you test it :-)
+
+
+* How to handle the responsibility ?
+
+
+* Ruthless Testing
+
+- Most developers hate testing
+- They test gently, subconsciously knowing where the code will break
+- Lets face it, testing is hard :-)
+- But really pragmatic programmers are driven to find the bugs *now*
+- It is easier to catch bugs as soon as they appear
+- We want to close this gap as much as we can
+- Also have regression for previously tested functionality
+- Test Early, Test Often. Test Automatically
+
+
+* How to test the test ?
+
+
+* Sabotage !!!
+
+.image ./img/disaster-girl.jpg _ 700
+
+
+* Messing up with code
+
+- To test the test you have to see it fail
+- To make it fail you have to comment out code
+- Perhaps, it would be easier to write the test first
+
+
+* Enters TDD
+
+
+* The micro cycle
+
+- Write the test first
+- Run it, see it fail
+- Write the minimum amount of code to make it pass (tricky :-)
+- Refactor
+- Start again :-)
+
+
+* Nature of the tests
+
+
+* FIRST
+
+- Fast
+- Isolated
+- Repeatable
+- Self-verifying
+- Timely
+
+
+* TDD Benefits
+
+* Disclaimer
+
+- TDD is not the only way to achieve any of these objectives
+- But if you are having problems with any of these, it *may* help you
+
+
+* TDD Benefits
+
+- Testability is a first class citizen on your design
+- Dependency management problems become explicit on test code
+- Enables refactoring
+- Executable specification of the system
+- You may write less crap :-)
+
+
+* Peace of mind
+
+.image ./img/refactoring.png
+
+
+* What TDD is not
+
+- A tool to write unit tests (it is not UTDD)
+- A silver bullet
+- It is a mindset, it depends on you thinking about what you do
+
+
+* The experience of learning TDD
+
+
+* Not one line without tests !!!
+
+- For experienced people sounds silly and unreal
+- Rules are required for beginners
+- In the end you won't TDD everything
+
+
+* Micro testing
+
+- Testing stuff like Get/Set
+- Each module / class of the system *MUST* have tests
+- Usually because people get the "unit" testing thing wrong
+
+
+* Testing the wrong stuff
+
+- On the start, TDD is really slow
+- Since you do TDD all the time, you start to get late
+- Pressure builds up
+- You give up testing, start to code like hell :D
+- You may end with tests to less important parts of the system
+
+
+* Delaying integration
+
+- Basically you get stuck on the micro cycle forever
+- TDD is not only about unit testing
+- It is a whole test mindset
+- Integration tests
+- Performance tests
+- Load tests
+- Exploratory tests
+
+
+* Overmocking
+
+.image ./img/mocks.png
+
+
+* Overmocking
+
+- Mocks are implementation details on your tests
+- You are coupling your tests to these details
+- The mocks are more code for you to maintain
+- How can you know that it does not reflect the truth anymore ?
+- Just pay the price if you are going to get something from it
+
+
+* Some good reasons to mock
+
+- Volatile resources (like time)
+- Slow to setup dependencies
+- Hard to control dependencies
+- Test error conditions and exceptional behaviour
+
+
+* Legacy Code
+
+- Have a bug ? Write a test for it :-)
+- No bug correction is accepted without a test
+- Need to refactor ? Test first
+- New feature, TDD it :-)
+- Terribly hard to do, that is why is easier to test first :-)
+
+
+* Can I just read my way through all this ?
+
+
+* NO !!!
+
+.image ./img/no.png
+
+
+* How to start ?
+
+
+* No time
+
+.image ./img/no-time-for-tdd.png
+
+
+* My boss don't let me
+
+.image ./img/boss-dont-let-it.png
+
+
+* Just start doing it :-)
+
+- It is *YOUR* responsibility
+- Start with the rules
+- Grow to use context
+- It is not a silver bullet, don't be religious
+- Should aid the business
+- Don't forget, the best feedback is the client feedback
+
+
+* What do you do achieve good enough software ?
+
+
+* Projects
+
+- [[http://www.mbtest.org/][Mountebank]]
+- [[https://github.com/shopify/toxiproxy][Toxiproxy]]
+- [[https://github.com/vcr/vcr][VCR]]
+
+
+* Resources / References
+
+- [[https://www.facebook.com/notes/kent-beck/when-tdd-doesnt-matter/797644973601702][When TDD Doesn't Matter]]
+- [[https://pragprog.com/magazines/2012-01/unit-tests-are-first][Tests are First]]
+- [[http://martinfowler.com/books/refactoring.html][Refactoring]]
+- [[http://www.amazon.com/The-Pragmatic-Programmer-Journeyman-Master/dp/020161622X][The Pragmatic Programmer]]
+- [[https://pragprog.com/book/jgade/test-driven-development-for-embedded-c][Test Driven Development for Embedded C]]
+- [[http://www.renaissancesoftware.net/blog/archives/206][Manual Test is Unsustainable]]
+- [[https://vimeo.com/68375232][Ian Cooper: TDD, where did it all go wrong]]
+- [[http://www.se-radio.net/2010/09/episode-167-the-history-of-junit-and-the-future-of-testing-with-kent-beck/][The History of JUnit and the Future of Testing with Kent Beck]]
