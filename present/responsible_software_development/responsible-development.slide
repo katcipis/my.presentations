@@ -1,6 +1,6 @@
 Responsible Software Development
 TDD on the trenches
-22 Jun 2015
+4 Jul 2015
 Tags: software development, agile, TDD, Refactoring, design, architecture
 
 Tiago Katcipis
@@ -246,9 +246,6 @@ http://github.com/katcipis
 - Don't forget, the best feedback is the client feedback
 
 
-* What do you do achieve good enough software ?
-
-
 * Projects
 
 - [[http://www.mbtest.org/][Mountebank]]
@@ -266,3 +263,6 @@ http://github.com/katcipis
 - [[http://www.renaissancesoftware.net/blog/archives/206][Manual Test is Unsustainable]]
 - [[https://vimeo.com/68375232][Ian Cooper: TDD, where did it all go wrong]]
 - [[http://www.se-radio.net/2010/09/episode-167-the-history-of-junit-and-the-future-of-testing-with-kent-beck/][The History of JUnit and the Future of Testing with Kent Beck]]
+
+
+* Questions ?
