@@ -1,0 +1,119 @@
+Docker Compose
+Easy and fast development environments
+29 August 2015
+Tags: docker, docker-compose, development environment
+
+Tiago Katcipis
+tiago.katcipis@neoway.com.br
+http://github.com/katcipis
+
+
+* Agenda
+
+- A word on good development environments
+- Docker Compose
+- Use case: Black Pearl
+- Conclusion
+
+
+* Why ?
+
+
+* Good development environment is
+
+- Traceable
+- Scalable
+- Orthogonal
+- As near as possible to the production environment
+- Easy to setup
+- Versioned
+- Able to execute integration tests
+
+
+* Integration testing, the problem
+
+- I need a Redis
+- And a RabbitMQ
+- And a MongoDB
+- Other services developer by other teams
+- Microservices makes it worse :-)
+
+
+* Docker Compose
+
+
+* What is it ?
+
+- Tool for defining and running multi-container applications with Docker
+- Define a multi-container application in a single file
+- Then spin your application up in a single command
+
+
+* Simple example
+
+web:
+  build: .
+  ports:
+   - "5000:5000"
+  volumes:
+   - .:/code
+  links:
+   - redis
+redis:
+  image: redis
+
+
+* Use Case
+
+* Black Pearl
+
+- Serviço de web scraping
+- Basicamente uma extensão do [[http://scrapy.org/][Scrapy]]
+- Recebe jobs por meio de uma queue
+- Extrai informações da fonte e disponibiliza essas informações em uma queue de resultados
+- Resultados serão tratados por outro serviço
+- Parece simples :-)
+
+
+* Overview
+
+.image images/blackpearl-dev-env.png
+
+
+* Dependencies
+
+- Precisamos de proxies válidos: proxyservice
+- Proxies válidos se encontram em um MongoDB, precisamos integrar com ele
+- Precisamos quebrar captchas: decaptcha
+- Comunicação com esses serviços é feita com Redis
+- API do Neobot é feita por filas, a implementação das filas usa RabbitMQ
+- Um simples testes de integração envolve ter todos esses serviços executando e se comunicando
+
+
+* Black Pearl: Objetivo
+
+- Executar testes de integração, porém em um ambiente isolado
+- O que seria isolamento ?
+- Execução de um teste não deve influenciar a execução de outro
+- Um desenvolvedor executando um teste não deveria interferir no trabalho de outro
+- O ideal é executar todos os serviços necessários na máquina do desenvolvedor
+- When something goes to QA ? When it is working :-)
+
+
+* Solving the problem
+
+* Docker Compose File
+
+.html html/docker-compose-file.html
+
+
+* Recorded demo :-(
+
+
+* Results
+
+- Integration testing, involving multiple services
+- Testing happens with same images used on production
+- High level of isolation
+- Amount of tools a new dev has to install: two (docker and docker-compose)
+- More freedom on integrated automated tests
