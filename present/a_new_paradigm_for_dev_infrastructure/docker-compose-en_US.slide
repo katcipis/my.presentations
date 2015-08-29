@@ -99,13 +99,13 @@ http://github.com/katcipis
 
 * Dependencies
 
-- RabbitMQ 
+- RabbitMQ
 - Postgres
 
 
 * Overview
 
-.image ./images/blackpearl-overview.png _ 500
+.image ./images/blackpearl-overview.png 400 _
 
 
 * Demos :-)
