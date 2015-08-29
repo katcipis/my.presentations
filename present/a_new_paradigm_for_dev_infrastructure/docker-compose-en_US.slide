@@ -1,6 +1,6 @@
 Docker Compose
-Easy and fast development environments
-29 August 2015
+Easy and fast isolated development environments
+29 Aug 2015
 Tags: docker, docker-compose, development environment
 
 Tiago Katcipis
@@ -16,7 +16,7 @@ http://github.com/katcipis
 - Conclusion
 
 
-* Why ?
+* Dev Env
 
 
 * Good development environment is
@@ -24,8 +24,9 @@ http://github.com/katcipis
 - Traceable
 - Scalable
 - Orthogonal
+- Deterministic
 - As near as possible to the production environment
-- Easy to setup
+- Easy and fast to setup
 - Versioned
 - Able to execute integration tests
 
@@ -51,63 +52,63 @@ http://github.com/katcipis
 
 * Simple example
 
-web:
-  build: .
-  ports:
-   - "5000:5000"
-  volumes:
-   - .:/code
-  links:
-   - redis
-redis:
-  image: redis
+    web:
+      build: .
+      ports:
+       - "5000:5000"
+      volumes:
+       - .:/code
+      links:
+       - redis
+    redis:
+      image: redis
 
 
 * Use Case
 
 * Black Pearl
 
-- Serviço de web scraping
-- Basicamente uma extensão do [[http://scrapy.org/][Scrapy]]
-- Recebe jobs por meio de uma queue
-- Extrai informações da fonte e disponibiliza essas informações em uma queue de resultados
-- Resultados serão tratados por outro serviço
-- Parece simples :-)
-
-
-* Overview
-
-.image images/blackpearl-dev-env.png
+- Web scraping service
+- Extension of [[http://scrapy.org/][Scrapy]]
+- Get jobs through a queue
+- Scraps a site, and push the scraped data on the queue
+- Sounds simple :-)
 
 
 * Dependencies
 
-- Precisamos de proxies válidos: proxyservice
-- Proxies válidos se encontram em um MongoDB, precisamos integrar com ele
-- Precisamos quebrar captchas: decaptcha
-- Comunicação com esses serviços é feita com Redis
-- API do Neobot é feita por filas, a implementação das filas usa RabbitMQ
-- Um simples testes de integração envolve ter todos esses serviços executando e se comunicando
+- Valid proxies: proxy-service
+- Valid proxies are on a MongoDB
+- We need to break captchas: decaptcha
+- Raw source files are saved on S3: rain-man
+- Integration with these services is made with Redis
+- Jobs input and output is done through a queue, the broker used is RabbitMQ
+- A simple scraping test involves all this working
 
 
-* Black Pearl: Objetivo
+* Gibbon
 
-- Executar testes de integração, porém em um ambiente isolado
-- O que seria isolamento ?
-- Execução de um teste não deve influenciar a execução de outro
-- Um desenvolvedor executando um teste não deveria interferir no trabalho de outro
-- O ideal é executar todos os serviços necessários na máquina do desenvolvedor
-- When something goes to QA ? When it is working :-)
+.image ./images/on-the-internet-no-one-knows-youre-a-gibbon.jpg
 
 
-* Solving the problem
+* Gibbon
 
-* Docker Compose File
+- Gets data from postgres and feeds the job queue
+- Gets results from job queue and save on postgres
 
-.html html/docker-compose-file.html
+
+* Dependencies
+
+- RabbitMQ 
+- Postgres
 
 
-* Recorded demo :-(
+* Overview
+
+.image ./images/blackpearl-overview.png _ 500
+
+
+* Demos :-)
 
 
 * Results
