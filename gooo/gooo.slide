@@ -29,18 +29,71 @@ http://github.com/katcipis
 
 TODO:IMAGES
 
+
 * Alan Kay on Object Orientation
 
-- I'm sorry that I long ago coined the term "objects" for this topic because it gets many people to focus on the lesser idea. The big idea is "messaging"
+At Utah sometime after Nov 66 when, influenced by Sketchpad, Simula, 
+the design for the ARPAnet, the Burroughs B5000, and my background in 
+Biology and Mathematics, I thought of an architecture for 
+programming.
+
+It was probably in 1967 when someone asked me what I was 
+doing, and I said: "It's object-oriented programming".
+
+
+* Alan Kay on Object Orientation
+
+I thought of objects being like biological cells and/or individual 
+computers on a network, only able to communicate with messages.
+
+The term "polymorphism" was imposed much later (I think by Peter Wegner) and 
+it isn't quite valid, since it really comes from the nomenclature of 
+functions, and I wanted quite a bit more than functions.
+
+
+* Alan Kay on Object Orientation
+
+I didn't like the way Simula I or Simula 67 did inheritance.
+So I decided to leave out inheritance as a built-in 
+feature until I understood it better.
+
+
+* Alan Kay on Object Orientation
+
+I'm sorry that I long ago coined the term "objects" for this topic because
+it gets many people to focus on the lesser idea. The big idea is "messaging"
 
 Sources
 
 .link http://lists.squeakfoundation.org/pipermail/squeak-dev/1998-October/017019.html Prototypes vs Classes
 .link http://www.purl.org/stefan_ram/pub/doc_kay_oop_en Dr. Alan Kay on the Meaning of “Object-Oriented Programming”
 
-* Does it matter ?
+* Object Orientation Origin on a Nutshell
 
-- Actually no
-- Only what you can express on a language matter
-- How the constructions of the language enable or hinder flexibility
-- What name you give to it helps communication between people, but it doesn't really matter to good design
+- Encapsulation (objects are like cells)
+- Messages between objects
+- No inheritance
+- No polymorphism (it is a subset of the idea)
+
+
+* Now when I think about C++/Java/Etc
+
+.image ./img/tellme.jpg
+
+
+* What if...
+
+Object Oriented has been perfected ? And that is why later it
+developed inheritance ?
+
+
+* Evaluating both ideas
+
+The only way to understand if it object orientation
+has been perfected or just bad implemented in the wild
+is by comparing both approaches.
+
+One has the idea of message passing and protocols and the
+other is about form and types of objects interacting.
+
+Which criteria to use on the comparison ?
