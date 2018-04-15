@@ -1,0 +1,46 @@
+Object Orientation in Go
+What is object orientation anyway ? Does it matter ?
+21 Apr 2018
+Tags: software development, software design, paradigms
+
+Tiago Katcipis
+Programmer, Neoway
+tiagokatcipis@gmail.com
+http://github.com/katcipis
+@tiagokatcipis
+
+* Agenda
+
+- Where did "Object Oriented" come from ?
+- What is the purpose of software design ?
+- Type Hierarchies
+- Interfaces
+- A real use case
+
+* Origins of Object Orientation
+
+- Every new thing usually has more than one influence
+- It is hard to pinpoint the origin of an idea
+- But people insist on being pedantic =D
+- Ranting like "Go is not OO"
+- So lets be pedantic too
+
+* Who is this guy ?
+
+TODO:IMAGES
+
+* Alan Kay on Object Orientation
+
+- I'm sorry that I long ago coined the term "objects" for this topic because it gets many people to focus on the lesser idea. The big idea is "messaging"
+
+Sources
+
+.link http://lists.squeakfoundation.org/pipermail/squeak-dev/1998-October/017019.html Prototypes vs Classes
+.link http://www.purl.org/stefan_ram/pub/doc_kay_oop_en Dr. Alan Kay on the Meaning of “Object-Oriented Programming”
+
+* Does it matter ?
+
+- Actually no
+- Only what you can express on a language matter
+- How the constructions of the language enable or hinder flexibility
+- What name you give to it helps communication between people, but it doesn't really matter to good design
