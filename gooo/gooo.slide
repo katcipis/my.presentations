@@ -12,14 +12,13 @@ http://github.com/katcipis
 * Agenda
 
 - Where did "Object Oriented" come from ?
-- What is the purpose of software design ?
-- Type Hierarchies
-- Interfaces
+- Interfaces as protocols
 - A real use case
+- What is the purpose of software design ?
 
 * Origins of Object Orientation
 
-- Every new thing usually has more than one influence
+- Every "new" thing usually has more than one influence
 - It is hard to pinpoint the origin of an idea
 - But people insist on being pedantic =D
 - Ranting like "Go is not OO"
@@ -68,32 +67,21 @@ Sources
 .link http://lists.squeakfoundation.org/pipermail/squeak-dev/1998-October/017019.html Prototypes vs Classes
 .link http://www.purl.org/stefan_ram/pub/doc_kay_oop_en Dr. Alan Kay on the Meaning of “Object-Oriented Programming”
 
+
 * Object Orientation Origin on a Nutshell
 
 - Encapsulation (objects are like cells)
 - Messages between objects
 - No inheritance
 - No polymorphism (it is a subset of the idea)
+- Focus on messaging between objects, not the form of the objects (morphos)
 
 
-* Now when I think about C++/Java/Etc
+* Now when I think about some traditional object oriented languages
 
 .image ./img/tellme.jpg
 
 
-* What if...
+* Interfaces as protocols
 
-Object Oriented has been perfected ? And that is why later it
-developed inheritance ?
-
-
-* Evaluating both ideas
-
-The only way to understand if it object orientation
-has been perfected or just bad implemented in the wild
-is by comparing both approaches.
-
-One has the idea of message passing and protocols and the
-other is about form and types of objects interacting.
-
-Which criteria to use on the comparison ?
+How we can focus on what is in the middle ?
