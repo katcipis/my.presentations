@@ -12,7 +12,7 @@ http://github.com/katcipis
 * Agenda
 
 - Where did "Object Oriented" come from ?
-- Interfaces as protocols
+- Interfaces as Protocols
 - A real use case
 - What is the purpose of software design ?
 
@@ -62,10 +62,12 @@ feature until I understood it better.
 I'm sorry that I long ago coined the term "objects" for this topic because
 it gets many people to focus on the lesser idea. The *big* *idea* is *"messaging"*
 
-Sources
+The Japanese have a small word -- ma -- for "that which
+is in between" -- perhaps the nearest English equivalent is "interstitial"
 
-.link http://lists.squeakfoundation.org/pipermail/squeak-dev/1998-October/017019.html Prototypes vs Classes
-.link http://www.purl.org/stefan_ram/pub/doc_kay_oop_en Dr. Alan Kay on the Meaning of “Object-Oriented Programming”
+The key in making great and growable systems is much more to design how its
+modules communicate rather than what their internal properties and
+behaviors should be
 
 
 * Object Orientation Origin on a Nutshell
@@ -74,7 +76,7 @@ Sources
 - Messages between objects
 - No inheritance
 - No polymorphism (it is a subset of the idea)
-- Focus on messaging between objects, not the form of the objects (morphos)
+- Focus on what is between objects, not the form of the objects (morphos/type)
 
 
 * Now when I think about some traditional object oriented languages
@@ -82,6 +84,62 @@ Sources
 .image ./img/tellme.jpg
 
 
-* Interfaces as protocols
+* Interfaces as Protocols
 
-How we can focus on what is in the middle ?
+
+* Definition of Protocol
+
+
+* Why compare interfaces with protocols
+
+Just to make it more explicit the message exchange
+nature when two objects integrate.
+
+Depending on the programmer background the term
+"interface" can be misleading (it was to me =().
+
+But interface is perfectly fine too.
+
+Thinking about objects as services can help too.
+
+
+* Reading File (or Stream...or whatever)
+
+.image ./img/iointeraction.png _ 700
+
+
+* What is in between
+
+.image ./img/iointeraction-between.png _ 650
+
+
+* What types matter ?
+
+.image ./img/iointeraction-types-matter.png _ 750
+
+
+* What is the objective of software engineering ?
+
+- There is a lot of challenges, like scaling, correctness, etc
+- But one of the main ones is how to accomodate change
+- Interfaces helps us accomodate change
+
+
+* Flexible and Safe
+
+There is no need to design ahead of time which interfaces you
+are going to need.
+
+No need to previously extrapolate how your objects will be used.
+
+Interfaces can be added to communicate with pre-existent objects as
+the need arises, in ways you did not foreseen, safely.
+
+Changes on a object that breaks a interface is caught
+at compile time with a clear error. No runtime surprises.
+
+
+* Sources
+
+.link http://lists.squeakfoundation.org/pipermail/squeak-dev/1998-October/017019.html Prototypes vs Classes
+.link http://www.purl.org/stefan_ram/pub/doc_kay_oop_en Dr. Alan Kay on the Meaning of “Object-Oriented Programming”
