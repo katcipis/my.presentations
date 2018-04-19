@@ -9,12 +9,14 @@ tiagokatcipis@gmail.com
 http://github.com/katcipis
 @tiagokatcipis
 
+
 * Agenda
 
 - Where did "Object Oriented" come from ?
-- Interfaces as Protocols
+- Interfaces
 - A real use case
 - What is the purpose of software design ?
+
 
 * Origins of Object Orientation
 
@@ -24,9 +26,15 @@ http://github.com/katcipis
 - Ranting like "Go is not OO"
 - So lets be pedantic too
 
+
 * Who is this guy ?
 
-TODO:IMAGES
+.image ./img/kay.jpg
+
+
+* Who is this guy ?
+
+.image ./img/kay2.jpg _ 900
 
 
 * Alan Kay on Object Orientation
@@ -36,8 +44,8 @@ the design for the ARPAnet, the Burroughs B5000, and my
 *background* in *Biology* and *Mathematics* , I thought of an architecture for 
 programming.
 
-It was probably in 1967 when someone asked me what I was 
-doing, and I said: "It's object-oriented programming".
+It was probably in *1967* when someone asked me what I was 
+doing, and I said: "It's *object-oriented* programming".
 
 
 * Alan Kay on Object Orientation
@@ -66,7 +74,7 @@ The Japanese have a small word -- ma -- for "that which
 is in between" -- perhaps the nearest English equivalent is "interstitial"
 
 The key in making great and growable systems is much more to design how its
-modules communicate rather than what their internal properties and
+modules *communicate* rather than what their internal properties and
 behaviors should be
 
 
@@ -79,31 +87,20 @@ behaviors should be
 - Focus on what is between objects, not the form of the objects (morphos/type)
 
 
+* First Lesson Learned
+
+Giving names ir hard, even for people like Alan Kay =)
+
+
 * Now when I think about some traditional object oriented languages
 
 .image ./img/tellme.jpg
 
 
-* Interfaces as Protocols
+* That which is in between: Interfaces
 
 
-* Definition of Protocol
-
-
-* Why compare interfaces with protocols
-
-Just to make it more explicit the message exchange
-nature when two objects integrate.
-
-Depending on the programmer background the term
-"interface" can be misleading (it was to me =().
-
-But interface is perfectly fine too.
-
-Thinking about objects as services can help too.
-
-
-* Reading File (or Stream...or whatever)
+* Example: Reading File (or Stream...or whatever)
 
 .image ./img/iointeraction.png _ 700
 
@@ -116,6 +113,27 @@ Thinking about objects as services can help too.
 * What types matter ?
 
 .image ./img/iointeraction-types-matter.png _ 750
+
+
+* What Go enables
+
+.image ./img/iointeraction-go-interfaces.png _ 900
+
+
+* What Go enables
+
+.image ./img/iointeraction-go-mul-interfaces.png _ 900
+
+
+* Show me the code
+
+
+* Why is this great ?
+
+- No need for the object implementing an interface to explicit declare it
+- The object implementing an interface is also not coupled to which name has been given to a interface (doesn't matter)
+- The type (form) of the object implementing an interface is irrelevant
+- The focus is on which messages (methods) it implements
 
 
 * What is the objective of software engineering ?
@@ -137,6 +155,11 @@ the need arises, in ways you did not foreseen, safely.
 
 Changes on a object that breaks a interface is caught
 at compile time with a clear error. No runtime surprises.
+
+
+* Final Lesson
+
+The only requirement for collaboration is a way to communicate
 
 
 * Sources
