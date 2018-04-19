@@ -10,14 +10,6 @@ http://github.com/katcipis
 @tiagokatcipis
 
 
-* Agenda
-
-- Where did "Object Oriented" come from ?
-- Interfaces
-- A real use case
-- What is the purpose of software design ?
-
-
 * Origins of Object Orientation
 
 - Every "new" thing usually has more than one influence
@@ -125,22 +117,21 @@ Giving names ir hard, even for people like Alan Kay =)
 .image ./img/iointeraction-go-mul-interfaces.png _ 900
 
 
-* Show me the code
-
-
 * Why is this great ?
 
 - No need for the object implementing an interface to explicit declare it
 - The object implementing an interface is also not coupled to which name has been given to a interface (doesn't matter)
-- The type (form) of the object implementing an interface is irrelevant
-- The focus is on which messages (methods) it implements
+- The object implementing an interface is also not coupled to a interface type (doesn't matter)
+- For the client, the type (form) of the object implementing an interface is irrelevant
+- The focus is on which messages (methods) the client needs and checking if an object has them
 
 
-* What is the objective of software engineering ?
+* Boils down to responsibilities
 
-- There is a lot of challenges, like scaling, correctness, etc
-- But one of the main ones is how to accomodate change
-- Interfaces helps us accomodate change
+- Client just needs to know what it wants, and define an interface
+- Service just needs to have methods
+- The compiler does the job of checking if the service is compatible with the interface declared by the client
+- Low coupling =)
 
 
 * Flexible and Safe
@@ -156,13 +147,83 @@ the need arises, in ways you did not foreseen, safely.
 Changes on a object that breaks a interface is caught
 at compile time with a clear error. No runtime surprises.
 
+Basically the flexibility of a dynamic typed language
+with compile time safety of a static one.
 
-* Final Lesson
 
-The only requirement for collaboration is a way to communicate
+* Real life example
+
+
+* How to get the status code of a exec.Command ?
+
+
+* Seems trivial...
+
+- Actually not
+- Some operational systems uses integers
+- Others have strings as the results of a process execution
+- Officially exported API on exec.Command don't give access to the status code (only if it failed or not)
+
+
+* Investigating the error
+
+.code ./code/exiterror.go
+
+
+* Investigating the ProcessState
+
+.code ./code/processstate.go
+
+
+* Empty interfaces...
+
+
+// TODO: some funny meme
+
+
+* Checking the unix implementation (WaitStatus)
+
+.code ./code/waitstatus.go
+
+
+* Found it
+
+// TODO: some other funny meme about finding ?
+
+
+* What about other platforms ?
+
+
+	syscall % grep -R ExitStatus .
+	./syscall_nacl.go:func (w WaitStatus) ExitStatus() int    { return 0 }
+	./syscall_bsd.go:func (w WaitStatus) ExitStatus() int {
+	./syscall_solaris.go:func (w WaitStatus) ExitStatus() int {
+	./syscall_linux.go:func (w WaitStatus) ExitStatus() int {
+	./syscall_windows.go:func (w WaitStatus) ExitStatus() int { return int(w.ExitCode) }
+	./syscall_plan9.go:func (w Waitmsg) ExitStatus() int { 
+
+
+* Its Something
+
+// TODO: add its something meme
+
+
+* Final Solution
+
+.code ./code/exitresult.go
+
+
+* Final Solution
+
+- This interface was not foreseen by the implementors of the WaitStatus
+- Yet it is there (for almost all platforms)
+- You can easily leverage that without changing the third party code (in this case the stdlib)
+- Sadly on this case the choice of exporting a *interface{}* obligates us to rely on runtime errors =(
+- Yet even with runtime cast we can see that we are not checking the object type, but its ability to satisty an interface
 
 
 * Sources
 
 .link http://lists.squeakfoundation.org/pipermail/squeak-dev/1998-October/017019.html Prototypes vs Classes
 .link http://www.purl.org/stefan_ram/pub/doc_kay_oop_en Dr. Alan Kay on the Meaning of “Object-Oriented Programming”
+.link https://katcipis.github.io/blog/object-orientation-go/ Object Orientation in Go
