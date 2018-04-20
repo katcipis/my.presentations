@@ -81,7 +81,7 @@ behaviors should be
 
 * First Lesson Learned
 
-Giving names ir hard, even for people like Alan Kay =)
+Giving names is hard, even for people like Alan Kay =)
 
 
 * Now when I think about some traditional object oriented languages
@@ -120,7 +120,7 @@ Giving names ir hard, even for people like Alan Kay =)
 * Why is this great ?
 
 - No need for the object implementing an interface to explicit declare it
-- The object implementing an interface is also not coupled to which name has been given to a interface (doesn't matter)
+- The object implementing an interface is also not coupled to which name has been given to an interface (doesn't matter)
 - The object implementing an interface is also not coupled to a interface type (doesn't matter)
 - For the client, the type (form) of the object implementing an interface is irrelevant
 - The focus is on which messages (methods) the client needs and checking if an object has them
@@ -203,7 +203,7 @@ with compile time safety of a static one.
 	./syscall_plan9.go:func (w Waitmsg) ExitStatus() int { 
 
 
-* Its Something
+* It's Something
 
 // TODO: add its something meme
 
