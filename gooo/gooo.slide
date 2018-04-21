@@ -16,7 +16,7 @@ https://katcipis.github.io
 - It is hard to pinpoint the origin of an idea
 - But people insist on being pedantic =D
 - Ranting like "Go is not OO"
-- So lets be pedantic too
+- So let's be pedantic too
 
 
 * Disclaimer
@@ -167,7 +167,7 @@ with compile time safety of a static one.
 - Actually not
 - Some operational systems uses integers
 - Others have strings as the results of a process execution
-- Officially exported API on exec.Command don't give access to the status code (only if it failed or not)
+- Officially exported API on exec.Command doesn't give access to the status code (only if it failed or not)
 
 
 * Investigating the error
@@ -183,7 +183,7 @@ with compile time safety of a static one.
 * Empty interfaces...
 
 
-.image ./img/badtime.jpg
+.image ./img/reallydog.jpg _ 900
 
 
 * Checking the unix implementation (WaitStatus)
