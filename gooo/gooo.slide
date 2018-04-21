@@ -1,5 +1,5 @@
 Object Orientation in Go
-What is object orientation anyway ? Does it matter ?
+What is object orientation anyway ?
 21 Apr 2018
 Tags: software development, software design, paradigms
 
@@ -17,6 +17,11 @@ https://katcipis.github.io
 - But people insist on being pedantic =D
 - Ranting like "Go is not OO"
 - So lets be pedantic too
+
+
+* Disclaimer
+
+.image ./img/ihave.jpg
 
 
 * Who is this guy ?
@@ -178,17 +183,12 @@ with compile time safety of a static one.
 * Empty interfaces...
 
 
-// TODO: some funny meme
+.image ./img/badtime.jpg
 
 
 * Checking the unix implementation (WaitStatus)
 
 .code ./code/waitstatus.go
-
-
-* Found it
-
-// TODO: some other funny meme about finding ?
 
 
 * What about other platforms ?
@@ -203,9 +203,10 @@ with compile time safety of a static one.
 	./syscall_plan9.go:func (w Waitmsg) ExitStatus() int { 
 
 
-* It's Something
+* Well...
 
-// TODO: add its something meme
+
+.image ./img/something.jpg
 
 
 * Final Solution
@@ -216,7 +217,7 @@ with compile time safety of a static one.
 * Final Solution
 
 - This interface was not foreseen by the implementors of the WaitStatus
-- Yet it is there (for almost all platforms)
+- Yet it is there (for almost all platforms at least)
 - You can easily leverage that without changing the third party code (in this case the stdlib)
 - Sadly on this case the choice of exporting a *interface{}* obligates us to rely on runtime errors =(
 - Yet even with runtime cast we can see that we are not checking the object type, but its ability to satisty an interface
