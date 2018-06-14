@@ -1,0 +1,295 @@
+Real Life Kubernetes
+Neoway Study Case
+12 May 2016
+Tags: DevOps, k8s, microservices, cluster orchestration
+
+Fabio Favero Henkes
+Lead Developer - Prevention Team, Neoway
+fabio.favero@neoway.com.br
+http://www.neoway.com.br
+@ffhenkes
+
+Tiago César Katcipis
+Metaphores enthusiast / Bug Factory - Datapirates Team, Neoway
+tiago.katcipis@neoway.com.br
+https://github.com/katcipis
+@tiagokatcipis
+
+
+* First, a little about Neoway
+
+.image ./img/neoway.jpg _ 700
+
+
+* Why should you care ?
+
+
+* Microservices !!!
+
+.image ./img/look-the-languages.jpg _ 700
+
+
+* Microservices: The tradeoff
+
+.image ./img/deploying-all-languages.jpg _ 700
+
+
+* Microservices: For each one
+
+- Deploy
+- Service discovery
+- Load balance
+- Health check
+- Scale
+- Get the logs
+
+
+* Development <-> Production distance
+
+.image ./img/code-prod.jpg _ 500
+
+
+* Cloud ephemeral infrastructure
+
+.image ./img/instances-down.jpg _ 550
+
+
+* Multi-tenancy
+
+.image ./img/multi-tenancy.jpg _ 650
+
+
+* The solution ?
+
+.image ./img/automate.jpg _ 700
+
+
+* If you want
+
+- A way to automate everything
+- As little distance as possible between running on the dev machine and production
+- Easy way to: configure, scale, service discovery, load balance, health check, rolling update, debug
+- Adding new services to be easy (you are going to have a lot of them :-)
+- No need to ssh/log into nodes (this should be an exception, not the norm)
+- No snowflakes servers
+- Easy way to enable multi-tenancy
+
+
+* Datapirates Case
+
+
+* Datapirates ???
+
+- Team responsible for capturing data on the internet
+- We mainly develop scrapers (we call them bots)
+
+
+* And...
+
+- All the infrastructure required by it
+- Breaking captchas
+- Fresh proxies to avoid blacklisting
+- Storing raw data (rastreability / reprocessing)
+- Monitor services + more than 260 bots
+- DevOps culture, the team does all operational work
+- Build new awesome architecture, with lasers !!!
+
+
+* Context: April 2015 - Architectural change
+
+
+* Current architecture
+
+- No clear service boundaries, lots of databases/ETLs and plsql
+- Data pumping based
+- Bots coupled on the databases (the schema is the protocol)
+
+
+* Current architecture
+
+- Bots developed based on a Java framework
+- All bots share the same java JVM (installed on host)
+- We have very interesting problems when we try to update Java :-)
+- There is no isolation or orthogonality
+
+
+* Current architecture
+
+- Running bot on a machine is not very easy
+- Testing is even harder, since its highly coupled to databases
+- When people are afraid to format their machine, something is wrong :-(
+
+
+* New architecture
+
+- Started work on new service oriented architecture for bots
+- Strong desire to have better isolation and orthogonality for the bots
+- Fast and easy development environment would be great too
+- And automation all the way
+
+
+* New architecture, with an adapter
+
+.image ./img/datapirates-arch.png 580 _
+
+
+* The Deployable artifact: Docker
+
+- Self-contained (no hell of dependencies)
+- Language agnostic way to package and run applications
+- Isolated and automated way to build development environments
+- Closes the gap between environments (dev <-> staging <-> production)
+
+
+* Docker unsolved problems (thank God)
+
+- But how to run 100 containers through 10 machines ?
+- How to connect different containers with each other ?
+- How to keep then running even on failures ?
+- Load balancing ?
+
+
+* The Cluster Orchestrator: Kubernetes
+
+- Scheduling
+- Scaling
+- Load Balance
+- Health Check
+- Service discovery
+- Logs
+
+
+* Kubernetes why ?
+
+- More than just using fleet
+- Less than using Mesos/Mesosphere/Deis
+- At the time docker swarm was alpha (and docker only)
+- We wanted something more, but that wasn't a PAAS (remember, multi-tenancy)
+
+
+* Kubernetes why ?
+
+- Kubernetes is a CAAS (Container As A Service)
+- Just what we wanted :-)
+- Cool / Scalable way to extend through REST API
+- Great community (Google + Red Hat as top contributors, not bad :-)
+- Great documentation
+
+
+* The learning experience
+
+- Setting up a cluster took less than a day (with help of a kick ass BlackOps/DevOps/PaleoOps)
+- Understand the main concepts is pretty fast
+- Understanding the networking took almost a week and a lot of drawings on the wall :-)
+
+
+* Our full stack
+
+- CoreOS
+- Etcd
+- Flannel (SDN-Software Defined Network, or overlay network)
+- Kubernetes
+- [[https://github.com/NeowayLabs/cloud-machine][Cloud Machine]]
+
+
+* How the cluster is built ?
+
+- Using Cloud Machine and cloud-configs
+- Why not [[https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html][kube-aws]] ?
+- Because it didnt existed on the time we started :-)
+- It seems to be a good way to start playing with Kubernetes + CoreOS
+
+
+* Deployment Overview
+
+
+* Where each service/database is
+
+.image ./img/deployment.png _ 750
+
+
+* Networking Example
+
+
+* How a bot reaches a service ? Magic !!!
+
+.image ./img/magic.gif _ 600
+
+
+* No magic :)
+
+.image ./img/kubernetes-networking.png
+
+
+* Size of the cluster
+
+- 8 services
+- 20 bots
+- Total pods: 60 ~ 100
+- More than 15 million PDFs downloaded and parsed
+
+
+* The good
+
+- Choose a service discovery that works the same on dev/prod
+- Docker Compose <-> Kubernetes was transparent
+- Do not use docker link env vars, they are deprecating on Docker 1.10
+- DNS seems the way to go
+
+
+* The good
+
+- Being able to build entire cluster is 5 minutes was a good way to experiment with different instance types
+- No need to knows IPs (or have some cheatsheet)
+- Destroying stuff is fun :-)
+- Easy to get logs and get inside containers
+
+
+* The bad
+
+- Hard to debug network problems (more layers than usual)
+- Problems usually caused by disks being full
+- Or AWS connectivity issues
+- Just that...sorry, shit just works :-)
+
+* Prevention Case (Pathfinder)
+
+* Overview
+
+.image ./img/kubernetes.png
+
+
+* Pathfinder
+
+- Concept
+- Architecture
+- Deploy
+- AWS
+
+* Pathfinder Architecture Overview
+
+.image ./img/overview.png 490 _
+
+* Pathfinder AWS Infrastructure
+
+.image ./img/networking.png 667 _
+
+* Size of the cluster
+
+- 17 services
+- Total pods: 2 ~ 3 instances per service
+
+* Outside the cluster
+
+- Distributed filesystem (NFS)
+- 2 Nosql databases (MongoDB, Neo4J)
+- Message broker (RabbitMQ)
+
+* Pathfinder Auto Scaling
+
+.image ./img/autoscaling.png
+
+* Demo ?!
+
+
+* Questions ?
