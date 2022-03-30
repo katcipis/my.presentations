@@ -94,3 +94,9 @@ Lets check the current implementation [here](https://github.com/mineiros-io/terr
 - Always stops on first failure found
 - No support for distributed fuzzing
 - Can't fuzz multiple packages/functions with go test -fuzz
+
+
+## Learning more
+
+- [Tutorial: Getting started with fuzzing](https://go.dev/doc/tutorial/fuzz)
+- [Go Fuzz](https://go.dev/doc/fuzz/)
