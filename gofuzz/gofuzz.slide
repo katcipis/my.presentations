@@ -87,8 +87,7 @@ A high-level overview of the syntax and grammar is listed here.
 ```
 
 <br/>
-Coming up with corner cases is very time consuming and also impossible (you
-always forget something).
+Coming up with corner cases is very time consuming.
 
 To tackle the problem more efficiently we introduced some fuzzing magic sauce :-).
 
