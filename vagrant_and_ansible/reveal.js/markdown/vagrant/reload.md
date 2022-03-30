@@ -1,4 +1,0 @@
-Reload Vagrantfile
-===
-
-        vagrant reload

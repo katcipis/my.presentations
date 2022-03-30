@@ -1,4 +1,0 @@
----
-- name: Installing node.js
-  apt: name=nodejs-legacy
-  tags: nodejs
