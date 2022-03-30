@@ -86,10 +86,7 @@ always forget something).
 
 To tackle the problem more efficiently we introduced some fuzzing magic sauce :-).
 
-
-## Fuzzing to the rescue
-
-.code code/tm_partial_eval_fuzz.go /START SEED OMIT/,/END SEED OMIT/
+Lets check the current implementation [here](https://github.com/mineiros-io/terramate/blob/8fc5cb6929bed1a13b9a2182e75f620e8bb073ac/hcl/eval/partial_fuzz_test.go).
 
 
 ## Current Limitations
