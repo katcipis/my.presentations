@@ -24,10 +24,13 @@ fuzzing a first class citizen on the language.
 Starting on Go 1.18 you can run a fuzzing target as easily
 as running: 
 
+<br/>
+
 ```
 go test <package> -fuzz=<FuzzFunction>
 ```
 
+<br/>
 But first lets talk about the overall workflow.
 
 
@@ -76,11 +79,14 @@ to the challenge considerably.
 
 Quoting the [HCL docs](https://pkg.go.dev/github.com/hashicorp/hcl#section-readme):
 
+<br/>
+
 ```
 For a complete grammar, please see the parser itself.
 A high-level overview of the syntax and grammar is listed here.
 ```
 
+<br/>
 Coming up with corner cases is very time consuming and also impossible (you
 always forget something).
 
