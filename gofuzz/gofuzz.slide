@@ -1,0 +1,34 @@
+# Fuzzing in Go
+
+Kicking off the tires of the new Go Fuzzer
+31 Mar 2022
+Tags: go, testing, software, fuzzing
+
+Tiago (Natel, Katcipis)
+
+
+## Introduction
+
+Fuzzing has been done for quite some time in Go using
+the [go-fuzz](https://github.com/google/gofuzz) project.
+
+We did some fuzzing in the past with go-fuzz on the 
+[Nash parser](https://github.com/madlambda/nash/blob/9ce2534d30bd167da0b351ad3395daa1fa449800/fuzz.go).
+
+Parsers are one of the most useful targets of fuzzing given
+that they have a broad set of possible inputs.
+
+Usefulness of fuzzing motivated the Go community to make
+fuzzing a first class citizen on the language.
+
+Starting on Go 1.18 you can run a fuzzing target as easily
+as running: 
+
+```
+go test <package> -fuzz=<FuzzFunction>
+```
+
+But first lets talk about the overall workflow.
+
+
+## Workflow
