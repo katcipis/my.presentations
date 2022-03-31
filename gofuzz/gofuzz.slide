@@ -26,6 +26,14 @@ The first successfully instrumentation-based fuzzer is [AFL](https://github.com/
 for core open source projects.
 
 
+## AFL Hall Of Fame
+
+AFL got a lot of traction because of security issues/bugs found on a lot
+of open source projects:
+
+.image img/afl-hall-fame.png 470 _
+
+
 ## Go Fuzzing
 
 Fuzzing has been done for quite some time in Go using
