@@ -7,7 +7,7 @@ Tags: go, testing, software, fuzzing
 Tiago (Natel, Katcipis)
 
 
-## Fuzzing in general
+## Intro to Fuzzing
 
 Technique to generate automatically interesting inputs that exercise
 your code in unexpected ways.
