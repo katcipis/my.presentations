@@ -7,7 +7,20 @@ Tags: go, testing, software, fuzzing
 Tiago (Natel, Katcipis)
 
 
-## Introduction
+## Fuzzing in general
+
+Technique to generate automatically interesting inputs that exercise
+your code in unexpected ways.
+
+Very useful to find vulnerabilities and it started with a strong focus on
+security. But given its usefulness to also detect common bugs and check if
+invariants on software holds it is starting to get more attention from
+developers not focused on security.
+
+One of the first fuzzers is [AFL](https://github.com/google/AFL).
+
+
+## Go Fuzzing
 
 Fuzzing has been done for quite some time in Go using
 the [go-fuzz](https://github.com/google/gofuzz) project.
