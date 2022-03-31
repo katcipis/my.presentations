@@ -1,7 +1,5 @@
-all: deps present
-
 present:
 	present .
 
 deps:
-	go get golang.org/x/tools/cmd/present
+	go install golang.org/x/tools/cmd/present@v0.1.10

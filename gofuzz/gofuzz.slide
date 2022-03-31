@@ -1,0 +1,139 @@
+# Fuzzing in Go
+
+Kicking off the tires of the new Go Fuzzer
+31 Mar 2022
+Tags: go, testing, software, fuzzing
+
+Tiago (Natel, Katcipis)
+
+
+## Intro to Fuzzing
+
+Technique to generate automatically interesting inputs that exercise
+your code in unexpected ways.
+
+Very useful to find vulnerabilities and it started with a strong focus on
+security. But given its usefulness to also detect common bugs and check if
+invariants on software holds it is starting to get more attention from
+developers not focused on security.
+
+Fuzzing can be done completely randomly, be guided by coverage analysis,
+or even with a structure aware mutation engine (not just flipping bits).
+
+The first successfully instrumentation-based fuzzer is [AFL](https://github.com/google/AFL).
+
+[oss-fuzz](https://github.com/google/oss-fuzz) provides 24x7 fuzzing
+for core open source projects.
+
+
+## AFL Hall Of Fame
+
+AFL got a lot of traction because of security issues/bugs found on a lot
+of open source projects:
+
+.image img/afl-hall-fame.png 470 _
+
+
+## Go Fuzzing
+
+Fuzzing has been done for quite some time in Go using
+the [go-fuzz](https://github.com/google/gofuzz) project.
+
+We did some fuzzing in the past with go-fuzz on the 
+[Nash parser](https://github.com/madlambda/nash/blob/9ce2534d30bd167da0b351ad3395daa1fa449800/fuzz.go).
+
+Parsers are one of the most useful targets of fuzzing given
+that they have a broad set of possible inputs.
+
+Usefulness of fuzzing motivated the Go community to make
+fuzzing a first class citizen on the language.
+
+Starting on Go 1.18 you can run a fuzzing target as easily
+as running: 
+
+<br/>
+
+```
+go test <package> -fuzz=<FuzzFunction>
+```
+
+<br/>
+But first lets talk about the overall workflow.
+
+
+## Workflow
+
+It is very easy start fuzzing on Go 1.18, the steps are:
+
+- Define a fuzzing function.
+- Use `go test -fuzz=FuzzYourFunction` to start the fuzzing process
+- If any errors are found, fuzzing stops and adds the offending input to your corpus
+- Now running `go test` will also fail, the offending input becomes a regression test
+- Fix the bug
+- Now `go test` passes !
+- Go back to `go test -fuzz=FuzzYourFunction` until you find another bug :-)
+
+
+## How does a fuzzing function look like ?
+
+A function, similar to test functions in Go, that sets up a seed corpus
+and then defines the actual fuzz function:
+
+.image https://go.dev/doc/fuzz/example.png 300 _
+
+Seed corpus is also loaded from files in the
+testdata/fuzz/{FuzzTestName} directory within the package.
+
+Failure conditions are the same as test functions (panic/t.Fail())
+
+
+## How generation works ?
+
+.image https://raw.githubusercontent.com/katcipis/memes/master/magic.gif 400 _
+
+It is a coverage based fuzzer, it randomly generates new inputs
+and uses coverage analysis as a way to determine if the input is interesting
+or not.
+
+## Example
+
+.image https://upload.wikimedia.org/wikipedia/commons/f/fa/AFL_Fuzz_Logo.gif 500 _
+
+## Study Case: Terramate Partial Evaluation
+
+Working on partial evaluation on [Terramate](https://github.com/mineiros-io/terramate)
+ended up evolving into almost a full parser.
+
+Parsers are already challenging, but the fact that HCL is poorly specified adds
+to the challenge considerably.
+
+Quoting the [HCL docs](https://pkg.go.dev/github.com/hashicorp/hcl#section-readme):
+
+<br/>
+
+```
+For a complete grammar, please see the parser itself.
+A high-level overview of the syntax and grammar is listed here.
+```
+
+<br/>
+Coming up with corner cases is very time consuming.
+
+To tackle the problem more efficiently we introduced some fuzzing magic sauce :-).
+
+Lets check the current implementation [here](https://github.com/mineiros-io/terramate/blob/8fc5cb6929bed1a13b9a2182e75f620e8bb073ac/hcl/eval/partial_fuzz_test.go).
+
+And some recent experimentation on [terradoc](https://github.com/mineiros-io/terradoc/tree/i4k-add-fuzzer).
+
+
+## Current Limitations
+
+- Always stops on first failure found
+- No support for distributed fuzzing
+- Can't fuzz multiple packages/functions with go test -fuzz
+
+
+## Learning more
+
+- [Tutorial: Getting started with fuzzing](https://go.dev/doc/tutorial/fuzz)
+- [Go Fuzz](https://go.dev/doc/fuzz/)
