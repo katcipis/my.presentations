@@ -20,7 +20,7 @@ developers not focused on security.
 Fuzzing can be done completely randomly, be guided by coverage analysis,
 or even with a structure aware mutation engine (not just flipping bits).
 
-One of the first fuzzers is [AFL](https://github.com/google/AFL).
+The first successfully instrumentation-based fuzzer is [AFL](https://github.com/google/AFL).
 
 [oss-fuzz](https://github.com/google/oss-fuzz) provides 24x7 fuzzing
 for core open source projects.
