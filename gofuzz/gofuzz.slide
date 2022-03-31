@@ -81,6 +81,9 @@ It is a coverage based fuzzer, it randomly generates new inputs
 and uses coverage analysis as a way to determine if the input is interesting
 or not.
 
+## Example
+
+.image https://upload.wikimedia.org/wikipedia/commons/f/fa/AFL_Fuzz_Logo.gif 500 _
 
 ## Study Case: Terramate Partial Evaluation
 
