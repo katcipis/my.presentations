@@ -93,6 +93,8 @@ To tackle the problem more efficiently we introduced some fuzzing magic sauce :-
 
 Lets check the current implementation [here](https://github.com/mineiros-io/terramate/blob/8fc5cb6929bed1a13b9a2182e75f620e8bb073ac/hcl/eval/partial_fuzz_test.go).
 
+And some recent experimentation on [terradoc](https://github.com/mineiros-io/terradoc/tree/i4k-add-fuzzer).
+
 
 ## Current Limitations
 
